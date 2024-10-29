@@ -45,6 +45,18 @@ Test-Automáticos, Code coverage > 80%, Diagrama de Secuencia / Arquitectura del
 El proyecto ha sido deployado a Render, se puede acceder mediante el siguiente link: https://primerparcialmagnetodds.onrender.com
 - POST /adn - Recibe la matriz deL ADN a verificar.
 - GET /obtenerEstadisticas - Devuelve la cantidad de mutantes y humanos verificados, con su respectivo ratio.
+  
+BASE DE DATOS
+- Configuracion de la base de datos H2
+spring.datasource.url=jdbc:h2:file:./data/testdb
+
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+-LEVANTAR H2 con este comando
+ http://localhost:8081/h2-console/
+
+
 
 # Diagrama de arquitectura
 En este diagrama, el cliente (JMeter) envía solicitudes HTTP a los controladores API REST. El /mutant/controlador recibe la secuencia de ADN y llama al servicio de verificación de ADN. El /obtenerestadisticas llama al servicio de estadísticas para recopilar y devolver estadísticas. Ambos servicios llaman a sus respectivos repositorios para almacenar o recuperar datos. Los datos se almacenan en la base de datos H2.
